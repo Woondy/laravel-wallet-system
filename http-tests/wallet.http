@@ -1,0 +1,35 @@
+###
+# Wallet API Tests
+#
+# This file contains HTTP requests to test various endpoints.
+# Ensure your development server is running and accessible before sending requests.
+#
+# Before using this file, ensure you have installed the "REST Client" extension in Visual Studio Code:
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+###
+
+###
+# Confirm that the Base URL and Wallet ID are correctly configured before proceeding with the tests.
+###
+@baseUrl = http://localhost:8000
+@walletId = 1
+
+### Deposit Funds
+POST {{ baseUrl }}/api/wallets/{{ walletId }}/deposit
+Content-Type: application/json
+
+{
+    "amount": 100
+}
+
+### Withdraw Funds
+POST {{ baseUrl }}/api/wallets/{{ walletId }}/withdraw
+Content-Type: application/json
+
+{
+    "amount": 50
+}
+
+### Get Wallet Balance and Transactions
+GET {{ baseUrl }}/api/wallets/{{ walletId }}/balance
+Content-Type: application/json
